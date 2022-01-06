@@ -48,7 +48,8 @@ public class Menu {
             System.out.println("6. wicket");
             System.out.println("7. wideball");
             System.out.println("8. noball");
-            System.out.println("9. Extra run");
+            System.out.println("9. Extra run (without counting ball)");
+            System.out.println("10. Extra run (counting ball)");
 
             if (teamA.getBattingStatus()) {
                 curBall += calculation(teamA);
@@ -61,7 +62,7 @@ public class Menu {
                 System.out.println("=====================================");
                 if (teamA.getWicket() == 10 || curOver == overs
                         || (innings == 1 && teamA.getScore() > teamB.getScore())) {
-                    curOver = 0;
+                    curOver = curBall = 0;
                     innings++;
                     teamA.setBattingStatus(false);
                     teamB.setBattingStatus(true);
@@ -80,7 +81,7 @@ public class Menu {
                 System.out.println("=====================================");
                 if (teamB.getWicket() == 10 || curOver == overs
                         || (innings == 1 && teamB.getScore() > teamA.getScore())) {
-                    curOver = 0;
+                    curOver = curBall = 0;
                     innings++;
                     teamB.setBattingStatus(false);
                     teamA.setBattingStatus(true);
@@ -130,7 +131,7 @@ public class Menu {
             t.addScore(1);
         } else if (d == 8) {
             t.addScore(1);
-        } else if (d == 9) {
+        } else if (d == 9 || d == 10) {
             System.out.println("How much extra run?");
             Scanner s = new Scanner(System.in);
             int runs = s.nextInt();
@@ -139,7 +140,7 @@ public class Menu {
             System.out.println("Invalid input.");
         }
 
-        if (d >= 0 && d <= 6) {
+        if ((d >= 0 && d <= 6) || d==10) {
             return 1;
         }
 
