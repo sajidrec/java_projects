@@ -60,6 +60,7 @@ public class Menu {
                 System.out.println("=====================================");
                 System.out.println(teamA.getName() + " " + teamA.getScore() + "/" + teamA.getWicket() + " Overs : " + curOver + "." + curBall);
                 System.out.println("=====================================");
+                // deciison
                 if (teamA.getWicket() == 10 || curOver == overs
                         || (innings == 1 && teamA.getScore() > teamB.getScore())) {
                     curOver = curBall = 0;
@@ -72,13 +73,15 @@ public class Menu {
                 }
             } else {
                 curBall += calculation(teamB);
-                if (curBall % 6 == 0) {
+                
+                if (curBall % 6 == 0 && curBall != 0) {
                     curOver++;
                     curBall = 0;
                 }
                 System.out.println("=====================================");
                 System.out.println(teamB.getName() + " " + teamB.getScore() + "/" + teamB.getWicket() + " Overs : " + curOver + "." + curBall);
                 System.out.println("=====================================");
+                // decision
                 if (teamB.getWicket() == 10 || curOver == overs
                         || (innings == 1 && teamB.getScore() > teamA.getScore())) {
                     curOver = curBall = 0;
