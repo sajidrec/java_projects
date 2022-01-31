@@ -1,1 +1,1 @@
-#Simple CGPA Calculator.
+#Simple GPA Calculator.
